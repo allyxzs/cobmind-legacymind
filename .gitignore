@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Node / React
+node_modules/
+dist/
+.vite/
+*.local
+
+# Neo4j / data
+*.dump
+neo4j/
+data/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+
+# Build artifacts
+*.zip
+build/
+*.log

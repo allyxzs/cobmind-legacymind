@@ -1,0 +1,15 @@
+/* acctrec.pli - Contas a receber (PL/I) */
+ACCTREC: PROC OPTIONS(MAIN);
+   DCL (AMOUNT, TAX, TOTAL) FIXED DEC(15,2);
+   DCL (RATE) FIXED DEC(5,4) INIT(0.0925);
+   DCL I FIXED BIN(31);
+   DO I = 1 TO 50;
+      CALL GET_AMT(I, AMOUNT);
+      IF AMOUNT > 0 THEN
+         DO;
+            TAX = AMOUNT * RATE;
+            TOTAL = AMOUNT + TAX;
+            CALL POST(I, TOTAL);
+         END;
+   END;
+END ACCTREC;
