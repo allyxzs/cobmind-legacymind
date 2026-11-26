@@ -1,0 +1,19 @@
+services:
+  api:
+    build: ./backend
+    container_name: cobmind-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./samples:/app/samples:ro
+      - ./samples:/samples:ro
+    environment:
+      - COBMIND_SAMPLES_DIR=/app/samples
+
+  web:
+    build: ./frontend
+    container_name: cobmind-web
+    ports:
+      - "5173:5173"
+    depends_on:
+      - api
